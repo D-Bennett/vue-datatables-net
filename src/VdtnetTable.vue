@@ -95,6 +95,15 @@ export default {
       type: Boolean
     },
     /**
+     * true to add 'table-responsive' wrapper class
+     *
+     * @type Boolean
+     */
+    isResponsive: {
+      default: true,
+      type: Boolean
+    },
+    /**
      * The details column configuration of master/details.
      *
      * @type {Object}
@@ -126,7 +135,10 @@ export default {
       return this.jquery || window.jQuery
     },
     classes() {
-      let classes = 'table-responsive vdtnet-container'
+      let classes = 'vdtnet-container'
+      if (this.isResponsive) {
+        classes += ' table-responsive'
+      }
       if (this.hideFooter) {
         classes += ' hide-footer'
       }
